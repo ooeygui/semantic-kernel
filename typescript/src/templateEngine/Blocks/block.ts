@@ -37,7 +37,7 @@ export abstract class Block {
         return this._log;
     }
 
-    public renderCode(executionContext: SKContext): Promise<string> {
+    public renderCode(_: SKContext): Promise<string> {
         throw new Error(`This block doesn't support code execution`);
     }
 

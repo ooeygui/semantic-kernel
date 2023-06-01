@@ -25,7 +25,7 @@ export class OpenAITextCompletion extends OpenAIClientAbstract implements ITextC
         this.httpClient.defaults.headers.Authorization = `Bearer ${apiKey}`;
 
         if (organization !== undefined && organization !== null && organization !== '') {
-            this.HTTPClient.defaults.headers['OpenAI-Organization'] = organization;
+            this.httpClient.defaults.headers['OpenAI-Organization'] = organization;
         }
     }
 
@@ -33,7 +33,7 @@ export class OpenAITextCompletion extends OpenAIClientAbstract implements ITextC
         Verify.notNull(requestSettings, 'Completion settings cannot be empty');
 
         const url = `${OpenAITextCompletion.OpenaiEndpoint}/engines/${this._modelId}/completions`;
-        this.Log.logDebug(`Sending OpenAI completion request to ${url}`);
+        this.log.logDebug(`Sending OpenAI completion request to ${url}`);
 
         if (requestSettings.MaxTokens < 1) {
             throw new AIException(

@@ -24,7 +24,7 @@ export abstract class OpenAIClientAbstract {
     }
 
     protected log: ILogger;
-    protected httpClient: AxiosInstance;
+    protected httpClient: AxiosInstance | undefined;
 
     async executeCompleteRequest(url: string, requestBody: string): Promise<string> {
         try {

@@ -11,20 +11,20 @@ export interface ILogger {
 }
 
 export class NullLogger implements ILogger {
-    trace(msg: string): void {
+    trace(_: string): void {
         // No action
     }
 
-    debug(msg: string): void {
+    debug(_: string): void {
         // No action
     }
 
-    warn(msg: string): void {
+    warn(_: string): void {
         // No action
         console;
     }
 
-    error(msg: string): void {
+    error(_: string): void {
         // No action
     }
 }

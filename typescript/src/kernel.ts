@@ -193,10 +193,10 @@ export class Kernel implements IKernel {
     }
 
     private static importSkill(skillInstance: any, skillName: string, log: ILogger): ISKFunction[] {
-        log.LogTrace("Importing skill: {0}", skillName);
+        log.trace("Importing skill: {0}", skillName);
         const methods: MethodInfo[] = skillInstance.constructor
             .getMethods(BindingFlags.Static | BindingFlags.Instance | BindingFlags.Public | BindingFlags.InvokeMethod);
-        log.LogTrace("Methods found {0}", methods.length);
+        log.trace("Methods found {0}", methods.length);
 
         // Filter out null functions
         const functions: ISKFunction[] = methods.map(method => SKFunction.fromNativeMethod(method, skillInstance, skillName, log));

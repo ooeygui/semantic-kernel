@@ -15,11 +15,12 @@ export class VarBlock extends Block {
 
     public readonly name: string = this.varName();
 
-    constructor(public content: string, log?: ILogger) {
+    constructor(content: string, log?: ILogger) {
         super(log);
+        this.content = content;
     }
 
-    public get type(): BlockTypes {
+    public override get type(): BlockTypes {
         return BlockTypes.Variable;
     }
 

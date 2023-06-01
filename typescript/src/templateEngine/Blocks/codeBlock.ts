@@ -15,11 +15,12 @@ import { VarBlock } from './varBlock';
 export class CodeBlock extends Block {
     private _validated: boolean = false;
 
-    constructor(public content: string, log: ILogger) {
+    constructor(content: string, log: ILogger) {
         super(log);
+        this.content = content;
     }
 
-    public get type(): BlockTypes {
+    public override get type(): BlockTypes {
         return BlockTypes.Code;
     }
 
@@ -72,11 +73,11 @@ export class CodeBlock extends Block {
         return { valid, error };
     }
 
-    public render(variables?: ContextVariables): string {
+    public render(_?: ContextVariables): string {
         throw new Error('Code blocks rendering requires IFunctionRegistryReader. Incorrect method call.');
     }
 
-    public async renderCode(context: SKContext): Promise<string> {
+    public override async renderCode(context: SKContext): Promise<string> {
         if (!this._validated) {
             const { valid, error } = this.isValid();
             if (!valid) {
